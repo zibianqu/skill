@@ -18,7 +18,8 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define your route model bindings, pattern filters, etc.
-     *
+     * 全局约束 Route::pattern('id', '[0-9]+');
+     * 定义路由模型绑定，模式过滤器等
      * @return void
      */
     public function boot()

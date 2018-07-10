@@ -122,6 +122,7 @@ return [
     'providers' => [
 
         /*
+         * laravel 框架服务提供
          * Laravel Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,
@@ -147,11 +148,22 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        /*
+        /* 
+         * 服务提供包
          * Package Service Providers...
          */
+        
+        /*
+         |---------------------------------------------
+         |  将数据库生成数据迁移（migration）文件
+         |---------------------------------------------
+         */
+        Way\Generators\GeneratorsServiceProvider::class,
+        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
+        
 
         /*
+         * 提供服务应用
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,

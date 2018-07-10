@@ -11,6 +11,15 @@
 |
 */
 
+/*
+|   //生成url
+|   $url = route('profile');
+|   // 生成重定向
+|   return redirect()->route('profile');
+*/
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index','IndexController@index');
