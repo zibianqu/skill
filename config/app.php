@@ -161,6 +161,12 @@ return [
         Way\Generators\GeneratorsServiceProvider::class,
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
         
+        /*
+         |---------------------------------------------
+         |  将数据库表生成模型文件
+         |---------------------------------------------
+         */
+        Reliese\Coders\CodersServiceProvider::class,
 
         /*
          * 提供服务应用

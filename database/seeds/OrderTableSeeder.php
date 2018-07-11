@@ -12,5 +12,6 @@ class OrderTableSeeder extends Seeder
     public function run()
     {
         //
+        
     }
 }
