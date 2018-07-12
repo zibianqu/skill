@@ -7,10 +7,9 @@ $factory->define(\App\Models\User::class, function (Faker $faker) {
     $dateTimeThisMonth=$faker->dateTimeThisMonth();//返回的是DateTime类(是类)
     $dateTime=$dateTimeThisMonth->format("Y-m-d H:i:s");//$dateTimeThisMonth->format("Y-m-d H:i:s")将时间格式（DateTime）转化为字符串
     $time=strtotime($dateTime);
-    $email='';
+    $email=$faker->email;
     if(Redis::sAdd('email',$email))//将email放入redis中避免重复
     {
-        $email=$faker->email;
         echo "\n";
         echo "old  ".$email;
     }
@@ -25,7 +24,7 @@ $factory->define(\App\Models\User::class, function (Faker $faker) {
             {
                 $prfix.=$str[rand(0,strlen($str)-1)];
             }
-            $email=$prfix.$faker->email;
+            $email=$prfix.'|'.$faker->email;
             Redis::sAdd('email',$email)&&$flag=true;
         }
         echo "\n";

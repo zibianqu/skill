@@ -15,12 +15,7 @@ class UserTest extends TestCase
      * @return void
      */
     public function testExample()
-<<<<<<< HEAD
     {
-       
-       $this->assertTrue(true);
-=======
-    {  
         $str='abcdefghijklmnopqrstuvwxwz0123456789';
         for($i=0;$i<5;$i++)
         {
@@ -28,6 +23,5 @@ class UserTest extends TestCase
         }
         var_export(Redis::del('test1'));
         $this->assertTrue(true);
->>>>>>> origin/master
     }
 }

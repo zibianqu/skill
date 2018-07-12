@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Redis;
 
-class UserTableSeeder extends Seeder
+class ShopTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
