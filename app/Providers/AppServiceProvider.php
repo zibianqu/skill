@@ -29,8 +29,6 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(\Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class);
         }
         
-     
-        
         //数据库表生成模型
         if ($this->app->environment() == 'local') {
             $this->app->register(\Reliese\Coders\CodersServiceProvider::class);

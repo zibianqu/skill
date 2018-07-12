@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Redis;
 
 class UserTableSeeder extends Seeder
 {
@@ -12,6 +13,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         //
+        Redis::del('email');
         factory(App\Models\User::class, 50)->create();
     }
 }
