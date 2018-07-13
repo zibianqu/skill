@@ -10,8 +10,7 @@ $factory->define(\App\Models\User::class, function (Faker $faker) {
     $email=$faker->email;
     if(Redis::sAdd('email',$email))//将email放入redis中避免重复
     {
-        echo "\n";
-        echo "old  ".$email;
+        
     }
     else
     {//这里为了避免数据库重复特意加了前缀
@@ -27,8 +26,6 @@ $factory->define(\App\Models\User::class, function (Faker $faker) {
             $email=$prfix.'|'.$faker->email;
             Redis::sAdd('email',$email)&&$flag=true;
         }
-        echo "\n";
-        echo "new  ".$email;
     }
     
     
