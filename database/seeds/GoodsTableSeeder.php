@@ -15,6 +15,7 @@ class GoodsTableSeeder extends Seeder
     {
         //
         die('请注释我');
+        Redis::del('shop_ids');//预先删除
         $shops=DB::table('shop')->get(['id']);
         foreach ($shops as $val){
             Redis::sAdd('shop_ids',$val->id);
