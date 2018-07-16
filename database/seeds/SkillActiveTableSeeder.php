@@ -12,6 +12,6 @@ class SkillActiveTableSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\Models\SkilActive::class, 1)->create();
+        factory(App\Models\SkillActive::class, 1)->create();
     }
 }
