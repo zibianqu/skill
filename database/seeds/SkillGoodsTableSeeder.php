@@ -14,6 +14,7 @@ class SkillGoodsTableSeeder extends Seeder
     public function run()
     {
         //
+//         die("请注释我");
         Redis::del('goods_ids');//预先删除
         $actives=DB::table('skill_active')->where('start_time','>',time())->get(['id']);
         foreach ($actives as $key=>$val)

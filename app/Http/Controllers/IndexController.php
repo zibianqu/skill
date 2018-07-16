@@ -1,11 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\URL;
 
 class IndexController extends Controller
 {
     public function index()
     {
-        echo "欢迎进入秒杀系统";
+        return view('index');
     }
 }
