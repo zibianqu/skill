@@ -14,7 +14,7 @@ class ShopTableSeeder extends Seeder
     public function run()
     {
         //
-        die('请注释我');
+        //die('请注释我');
         Redis::del('user_ids');//预先删除
         $result=DB::table('user')->where('type',2)->get(['id']);
         foreach ($result as $key=>$val)

@@ -13,7 +13,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         //
-        die('请注释我');
+        //die('请注释我');
         Redis::del('email');
         factory(App\Models\User::class, 10000)->create();
     }

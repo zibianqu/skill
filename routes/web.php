@@ -18,8 +18,9 @@
 |   return redirect()->route('profile');
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/index','IndexController@index');
+Route::get('/','IndexController@index');
+Route::get('/login','LoginController@login');

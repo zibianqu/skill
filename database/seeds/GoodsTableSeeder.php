@@ -14,7 +14,7 @@ class GoodsTableSeeder extends Seeder
     public function run()
     {
         //
-        die('请注释我');
+        //die('请注释我');
         Redis::del('shop_ids');//预先删除
         $shops=DB::table('shop')->get(['id']);
         foreach ($shops as $val){

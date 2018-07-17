@@ -12,6 +12,7 @@ class SkillActiveTableSeeder extends Seeder
     public function run()
     {
         //
+        //die("请注释我");
         factory(App\Models\SkillActive::class, 1)->create();
     }
 }
