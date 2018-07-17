@@ -23,4 +23,6 @@
 // });
 
 Route::get('/','IndexController@index');
-Route::get('/login','LoginController@login');
+Route::any('/login','LoginController@login');
+// Route::get('/login','LoginController@login');
+Route::get('/logout','LoginController@logout');
