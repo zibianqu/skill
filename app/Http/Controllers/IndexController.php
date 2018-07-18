@@ -8,6 +8,22 @@ class IndexController extends Controller
 {
     public function index()
     {
+        
+        $classify=DB::table('Classify')->get();
+        $arr=array();
+        foreach ($classify as $key=>$val)
+        {
+            $arr[$key]['id']=$val->id;
+            $arr[$key]['name']=$val->name;
+            $arr[$key]['pid']=$val->pid;
+            $arr[$key]['order']=$val->order;
+        }
+//         var_dump($arr);
+                $data=$this->treeSort1($arr, 0);
+                var_export($data);
+        
+        
+        
         try {
             $title = '首页';
             DB::connection()->enableQueryLog();
@@ -39,5 +55,48 @@ class IndexController extends Controller
             return view('404',compact('title'));
         }
         
+    }
+    function treeSort($data,$pid)
+    {   $tree=array();
+        foreach ($data as $key=>$val)
+        {
+            if($val['pid']==$pid)
+            {
+                $val['classify']=$this->treeSort($data, $val['id']);
+                $tree[$pid][]=$val;
+            }
+        }
+        return $tree;
+    }
+    
+    function treeSort1($data)
+    {
+        $data1=$this->format($data);
+        $tree=array();
+        $refer=array();
+        foreach ($data as $key=>$value){
+            $refer[$value['id']]=&$data[$key];
+        }
+        foreach ($data as $key=>$value)
+        {
+            if($value['pid']==0)
+            {
+               $tree[]= &$data[$key];
+            }else{
+                $refer[$value['pid']]['classify'][] = &$data[$key];
+            }
+            
+        
+        }
+        return $tree;
+    }
+    
+    function format($data){
+        $arr=array();
+        foreach ($data as $key=>$val)
+        {
+            $arr[$val['id']]=$val;
+        }
+        return $arr;
     }
 }

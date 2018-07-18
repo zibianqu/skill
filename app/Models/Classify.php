@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Sat, 14 Jul 2018 09:07:53 +0000.
+ * Date: Wed, 18 Jul 2018 14:17:08 +0000.
  */
 
 namespace App\Models;
@@ -10,35 +10,36 @@ namespace App\Models;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class SkilActive
+ * Class Classify
  * 
  * @property int $id
- * @property string $title
- * @property string $descript
- * @property int $start_time
- * @property int $end_time
+ * @property string $name
+ * @property int $pid
+ * @property int $order
+ * @property bool $status
  * @property int $record_time
  * @property int $update_time
  *
  * @package App\Models
  */
-class SkilActive extends Eloquent
+class Classify extends Eloquent
 {
-	protected $table = 'skil_active';
+	protected $table = 'classify';
 	public $timestamps = false;
 
 	protected $casts = [
-		'start_time' => 'int',
-		'end_time' => 'int',
+		'pid' => 'int',
+		'order' => 'int',
+		'status' => 'bool',
 		'record_time' => 'int',
 		'update_time' => 'int'
 	];
 
 	protected $fillable = [
-		'title',
-		'descript',
-		'start_time',
-		'end_time',
+		'name',
+		'pid',
+		'order',
+		'status',
 		'record_time',
 		'update_time'
 	];

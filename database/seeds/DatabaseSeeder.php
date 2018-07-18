@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
        $this->call(GoodsTableSeeder::class);
        $this->call(SkillActiveTableSeeder::class);
        $this->call(SkillGoodsTableSeeder::class);
+       $this->call(Classify::class);
     }
 }
