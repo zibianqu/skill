@@ -20,11 +20,11 @@
 						  <fieldset class="input">
 						    <p id="login-form-username">
 						      <label for="modlgn_username">Email</label>
-						      <input id="modlgn_username" type="text" name="email" class="inputbox" size="18" autocomplete="off">
+						      <input id="modlgn_username" type="text" name="email" value="noelia.glover@ward.com" class="inputbox" size="18" autocomplete="off">
 						    </p>
 						    <p id="login-form-password">
 						      <label for="modlgn_passwd">Password</label>
-						      <input id="modlgn_passwd" type="password" name="password" class="inputbox" size="18" autocomplete="off">
+						      <input id="modlgn_passwd" type="password" name="password" value="123456" class="inputbox" size="18" autocomplete="off">
 						    </p>
 						    
 						    <p id="login-form-error">

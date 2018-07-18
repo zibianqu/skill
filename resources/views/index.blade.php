@@ -6,7 +6,7 @@
         <div class="slider_container">
             <div class="slide"> 
                 <!-- Slide image -->
-                    <img src="images/banner.jpg" alt=""/>
+                    <img src="{{URL::asset('images/banner.jpg')}}" alt=""/>
                 <!-- /Slide image -->
                 <!-- Texts container -->
                 <div class="slide_content">
@@ -24,7 +24,7 @@
             </div>
             <!-- /Duplicate to create more slides -->
             <div class="slide">
-                <img src="images/banner1.jpg" alt=""/>
+                <img src="{{URL::asset('images/banner1.jpg')}}" alt=""/>
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <h4 class="title">consectetuer adipiscing </h4>
@@ -49,17 +49,17 @@
     		  @foreach($skillGoods as $key=>$val)
         	  	@if($key>=0 && $key<=2)
         			 <div class="col_1_of_3 span_1_of_3"> 
-        			   <a href="single.html">
+        			   <a href="{{url('skill',$val->sg_id)}}" target="_blank">
         				<div class="inner_content clearfix">
         					<div class="product_image">
-        						<img src="images/pic.jpg" alt=""/>
+        						<img src="{{URL::asset('images/pic.jpg')}}" alt=""/>
         					</div>
                             <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                             <div class="price">
         					   <div class="cart-left">
         							<p class="title">{{$val->goods_name}}</p>
         							<div class="price1">
-        							  <span class="actual">$12.00</span>
+        							  <span class="actual">¥{{$val->goods_price}}</span>
         							</div>
         						</div>
         						<div class="cart-right"> </div>
@@ -73,6 +73,61 @@
 				<div class="clear"></div>
 			</div>	
 			
+			<div class="top-box">
+    		  @foreach($skillGoods as $key=>$val)
+        	  	@if($key>=3 && $key<=5)
+        			 <div class="col_1_of_3 span_1_of_3"> 
+        			   <a href="{{url('skill',$val->sg_id)}}" target="_blank">
+        				<div class="inner_content clearfix">
+        					<div class="product_image">
+        						<img src="{{URL::asset('images/pic.jpg')}}" alt=""/>
+        					</div>
+                            <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
+                            <div class="price">
+        					   <div class="cart-left">
+        							<p class="title">{{$val->goods_name}}</p>
+        							<div class="price1">
+        							  <span class="actual">¥{{$val->goods_price}}</span>
+        							</div>
+        						</div>
+        						<div class="cart-right"> </div>
+        						<div class="clear"></div>
+        					 </div>				
+                           </div>
+                         </a>
+        				</div>
+            		@endif
+				@endforeach
+				<div class="clear"></div>
+			</div>
+			<div class="top-box">
+    		  @foreach($skillGoods as $key=>$val)
+        	  	@if($key>=6 && $key<=8)
+        			 <div class="col_1_of_3 span_1_of_3"> 
+        			  <a href="{{url('detail',$val->id)}}" target="_blank">
+        				<div class="inner_content clearfix">
+        					<div class="product_image">
+        						<img src="{{URL::asset('images/pic.jpg')}}" alt=""/>
+        					</div>
+                            <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
+                            <div class="price">
+        					   <div class="cart-left">
+        							<p class="title">{{$val->goods_name}}</p>
+        							<div class="price1">
+        							  <span class="actual">¥{{$val->goods_price}}</span>
+        							</div>
+        						</div>
+        						<div class="cart-right"> </div>
+        						<div class="clear"></div>
+        					 </div>				
+                           </div>
+                         </a>
+        				</div>
+            		@endif
+				@endforeach
+				<div class="clear"></div>
+			</div>
+			
 			
 		  	<h2 class="head">Featured Products</h2>
 			<div class="top-box">
@@ -80,7 +135,7 @@
 			   <a href="single.html">
 				<div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic.jpg')}}" alt=""/>
 					</div>
                     <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
@@ -100,7 +155,7 @@
 			   	 <a href="single.html">
 					<div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic1.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic1.jpg')}}" alt=""/>
 					</div>
                     <div class="price">
 					   <div class="cart-left">
@@ -119,7 +174,7 @@
 				 <a href="single.html">
 				  <div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic2.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic2.jpg')}}" alt=""/>
 					</div>
                     <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div>	
                     <div class="price">
@@ -143,7 +198,7 @@
 			  	 <a href="single.html">
 				 <div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic3.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic3.jpg')}}" alt=""/>
 					</div>
                     <div class="price">
 					   <div class="cart-left">
@@ -162,7 +217,7 @@
 					<a href="single.html">
 					<div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic4.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic4.jpg')}}" alt=""/>
 					</div>
 					 <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
@@ -182,7 +237,7 @@
 				 <a href="single.html">
 				 <div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic5.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic5.jpg')}}" alt=""/>
 					</div>
                     <div class="price">
 					   <div class="cart-left">
@@ -204,7 +259,7 @@
 			  	 <a href="single.html">
 				 <div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic6.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic6.jpg')}}" alt=""/>
 					</div>
                      <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
@@ -224,7 +279,7 @@
 				 <a href="single.html">
 					<div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic7.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic7.jpg')}}" alt=""/>
 					</div>
 					 <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div>	
                     <div class="price">
@@ -245,7 +300,7 @@
 				  <a href="single.html">
 				 <div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic8.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic8.jpg')}}" alt=""/>
 					</div>
                    	 <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
@@ -269,7 +324,7 @@
 			  	 <a href="single.html">
 				 <div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic8.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic8.jpg')}}" alt=""/>
 					</div>
                      <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
@@ -289,7 +344,7 @@
 					 <a href="single.html">
 					<div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic4.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic4.jpg')}}" alt=""/>
 					</div>
 				    <div class="price">
 					   <div class="cart-left">
@@ -308,7 +363,7 @@
 				 <a href="single.html">
 				 <div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic2.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic2.jpg')}}" alt=""/>
 					</div>
                    	 <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
@@ -332,7 +387,7 @@
 			  	 <a href="single.html">
 				 <div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic5.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic5.jpg')}}" alt=""/>
 					</div>
                      <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
@@ -352,7 +407,7 @@
 					<a href="single.html">
 					<div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic2.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic2.jpg')}}" alt=""/>
 					</div>
 					 <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
@@ -372,7 +427,7 @@
 				 <a href="single.html">
 				 <div class="inner_content clearfix">
 					<div class="product_image">
-						<img src="images/pic3.jpg" alt=""/>
+						<img src="{{URL::asset('images/pic3.jpg')}}" alt=""/>
 					</div>
                    	 <div class="sale-box"><span class="on_sale title_shop">New</span></div>	
                     <div class="price">
@@ -394,9 +449,9 @@
 			<div class="rsidebar span_1_of_left">
 				<div class="top-border"> </div>
 				 <div class="border">
-	             <link href="css/default.css" rel="stylesheet" type="text/css" media="all" />
-	             <link href="css/nivo-slider.css" rel="stylesheet" type="text/css" media="all" />
-				  <script src="js/jquery.nivo.slider.js"></script>
+	             <link href="{{URL::asset('css/default.css')}}" rel="stylesheet" type="text/css" media="all" />
+	             <link href="{{URL::asset('css/nivo-slider.css')}}" rel="stylesheet" type="text/css" media="all" />
+				  <script src="{{URL::asset('js/jquery.nivo.slider.js')}}"></script>
 				    <script type="text/javascript">
 				    $(window).load(function() {
 				        $('#slider').nivoSlider();
@@ -404,9 +459,9 @@
 				    </script>
 		    <div class="slider-wrapper theme-default">
               <div id="slider" class="nivoSlider">
-                <img src="images/t-img1.jpg"  alt="" />
-               	<img src="images/t-img2.jpg"  alt="" />
-                <img src="images/t-img3.jpg"  alt="" />
+                <img src="{{URL::asset('images/t-img1.jpg')}}"  alt="" />
+               	<img src="{{URL::asset('images/t-img2.jpg')}}"  alt="" />
+                <img src="{{URL::asset('images/t-img3.jpg')}}"  alt="" />
               </div>
              </div>
               <div class="btn"><a href="single.html">Check it Out</a></div>

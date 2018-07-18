@@ -14,13 +14,12 @@ class IndexController extends Controller
             //获取秒杀活动
             $actives=DB::table('skill_active')
                 ->select('id')
-                ->where('start_time','<',time())
                 ->where('end_time','>',time())
                 ->get();
             $activeIds=array();
             //将秒杀活动的id放入数组
             foreach ($actives as $val){
-                $activeIds[]=$val;
+                $activeIds[]=$val->id;
             }
             $skillGoods=DB::table('skill_goods')
                 ->join('goods', 'skill_goods.goods_id','=','goods.id')
@@ -32,10 +31,10 @@ class IndexController extends Controller
             // 获取查询日志
             $queries = DB::getQueryLog();
             // 即可查看执行的sql，传入的参数等等
-            dd($queries);
+            //dd($queries);
             return view('index',compact('title','skillGoods'));
         }catch (\Exception $e){
-//             dd($e);
+            dd($e);
             $title = '404';
             return view('404',compact('title'));
         }

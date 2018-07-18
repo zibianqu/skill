@@ -41,7 +41,7 @@
 	    <div class="wrap">
 			<div class="header-bottom-left">
 				<div class="logo">
-					<a href="{{url('/')}}"><img src="images/logo.png" alt=""/></a>
+					<a href="{{url('/')}}"><img src="{{URL::asset('images/logo.png')}}" alt=""/></a>
 				</div>
 				<div class="menu">
 	            <ul class="megamenu skyblue">
