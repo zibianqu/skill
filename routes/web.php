@@ -28,4 +28,4 @@ Route::any('/login','LoginController@login');
 Route::get('/logout','LoginController@logout');
 Route::get('/detail/{id}','GoodsController@detail')->where(['id'=>'[0-9]+']);
 Route::get('/skill/{id}','GoodsController@skill')->where(['id'=>'[0-9]+']);
-Route::post('/confirm_order.html','OrderController@orderStep1');
+Route::get('/confirm_order','OrderController@orderStep1');
