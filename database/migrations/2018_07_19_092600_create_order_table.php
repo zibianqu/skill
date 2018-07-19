@@ -22,6 +22,7 @@ class CreateOrderTable extends Migration {
 			$table->integer('count')->default(0)->comment('购买数量');
 			$table->decimal('price', 10)->default(0.00)->comment('商品价格');
 			$table->decimal('all_price', 10)->default(0.00)->comment('购买总价格');
+			$table->boolean('pay_way')->default(1)->comment('支付方式，1支付宝，2微信');
 			$table->boolean('is_pay')->default(0)->comment('0未付款，1付款，2退款');
 			$table->boolean('send_goods')->default(0)->comment('0未发货，1已发货，2已收货，3已退货');
 			$table->boolean('is_finished')->default(0)->comment('0订单未完成，1订单已完成(或失效）');

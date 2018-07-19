@@ -8,22 +8,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-        
-        $classify=DB::table('Classify')->get();
-        $arr=array();
-        foreach ($classify as $key=>$val)
-        {
-            $arr[$key]['id']=$val->id;
-            $arr[$key]['name']=$val->name;
-            $arr[$key]['pid']=$val->pid;
-            $arr[$key]['order']=$val->order;
-        }
-//         var_dump($arr);
-                $data=$this->treeSort1($arr, 0);
-                var_export($data);
-        
-        
-        
         try {
             $title = '首页';
             DB::connection()->enableQueryLog();
@@ -56,47 +40,169 @@ class IndexController extends Controller
         }
         
     }
-    function treeSort($data,$pid)
-    {   $tree=array();
+    
+   /**
+    * 算出两个时间的差
+    */
+    function makeTime(){
+//         $start=strtotime('2018-07-19 16:52:30');
+//         $end=strtotime('2018-07-17 10:30:50');;
+//         $diff=$start-$end;
+//         echo $date=floor($diff/86400);echo "\n";
+//         echo $hour=floor($diff%86400/3600);echo "\n";
+//         echo $minute=floor($diff%3600/60);echo "\n";
+//         echo $minute=floor($diff%86400%60);echo "\n";
+        
+        $startdate="2011-3-15 11:50:00";
+        
+        $enddate="2012-12-12 12:12:12";
+        
+        $date=floor((strtotime($enddate)-strtotime($startdate))/86400);
+        echo "相差天数：".$date."天<br/><br/>";
+        
+        $hour=floor((strtotime($enddate)-strtotime($startdate))%86400/3600);
+        echo "相差小时数：".$hour."小时<br/><br/>";
+        
+        $minute=floor((strtotime($enddate)-strtotime($startdate))%3600/60);
+        echo "相差分钟数：".$minute."分钟<br/><br/>";
+        
+        $second=floor((strtotime($enddate)-strtotime($startdate))%86400%60);
+        echo "相差秒数：".$second."秒";
+    }
+    
+    //分类
+    function sort()
+    {
+        $classify=DB::table('Classify')->get();
+        $data=array();
+        foreach ($classify as $key=>$val)
+        {
+            $data[$key]['id']=$val->id;
+            $data[$key]['name']=$val->name;
+            $data[$key]['pid']=$val->pid;
+            $data[$key]['order']=$val->order;
+        }
+        $data =$this->recursionSort($data,0);
+//         $data= $this->foreachSort($data);
+//         $data= $this->foreachSort1($data);
+        return $data;
+    }
+    
+    /**
+     * 递归排序 无限极分类
+     * @param unknown $data 分类数组
+     * @param unknown $pid  父级id
+     * @return unknown[][]
+     */
+    function recursionSort($data,$pid)
+    {
+        $tree=array();
+        foreach ($data as $val)
+        {
+            if($pid==$val['pid'])
+            {
+                $val['classify']=$this->recursionSort($data, $val['id']);//这里是知识点
+                $tree[]=$val;
+                
+            }
+        }
+        return $tree;
+    }
+    /**
+     * copy的网上的，真的很厉害这个分类
+     * 循环无限极分类， 指针指向
+     * @param unknown $data
+     * @return unknown[] 
+     */
+    function foreachSort($data)
+    {
+        $foramt=array();
         foreach ($data as $key=>$val)
         {
-            if($val['pid']==$pid)
+            $foramt[$val['id']]=&$data[$key];
+        }
+        $tree=array();
+        foreach ($data as $key=>$val)
+        {
+            if($val['pid']==0)
             {
-                $val['classify']=$this->treeSort($data, $val['id']);
-                $tree[$pid][]=$val;
+                $tree[]=&$foramt[$val['id']];
+            }else{
+                $foramt[$val['pid']]['classify'][]=&$data[$key];
             }
         }
         return $tree;
     }
     
-    function treeSort1($data)
+    /**
+     * copy的网上的，真的很厉害这个分类
+     * 循环无限极分类
+     * @param unknown $data
+     * @return unknown[]
+     */
+    function foreachSort1($data)
     {
-        $data1=$this->format($data);
+        $format=array();
         $tree=array();
-        $refer=array();
-        foreach ($data as $key=>$value){
-            $refer[$value['id']]=&$data[$key];
-        }
-        foreach ($data as $key=>$value)
+        foreach($data as $key=>$val)
         {
-            if($value['pid']==0)
+            $format[$val['id']]=&$data[$key];//这里我刚开始用的&$val,不能这样用，
+                                             //因为$val 是复制出来的值所以你指向她没有用
+        }
+        foreach($data as $key=>$val)
+        {
+            if($val['pid']==0)
             {
-               $tree[]= &$data[$key];
+                $tree[]=&$data[$key];
+                $tree[]=&$foramt[$val['id']];
             }else{
-                $refer[$value['pid']]['classify'][] = &$data[$key];
+                $format[$val['pid']]['classify'][]=&$data[$key];
             }
+        }
+        return $tree;
+    }
+    
+//     function treeSort($data,$pid)
+//     {   $tree=array();
+//         foreach ($data as $key=>$val)
+//         {
+//             if($val['pid']==$pid)
+//             {
+//                 $val['classify']=$this->treeSort($data, $val['id']);
+//                 $tree[$pid][]=$val;
+//             }
+//         }
+//         return $tree;
+//     }
+    
+//     function treeSort1($data)
+//     {
+//         $data1=$this->format($data);
+//         $tree=array();
+//         $refer=array();
+//         foreach ($data as $key=>$value){
+//             $refer[$value['id']]=&$data[$key];
+//         }
+//         foreach ($data as $key=>$value)
+//         {
+//             if($value['pid']==0)
+//             {
+//                $tree[]= &$data[$key];
+//             }else{
+//                 $refer[$value['pid']]['classify'][] = &$data[$key];
+//             }
             
         
-        }
-        return $tree;
-    }
+//         }
+//         return $tree;
+//     }
     
-    function format($data){
-        $arr=array();
-        foreach ($data as $key=>$val)
-        {
-            $arr[$val['id']]=$val;
-        }
-        return $arr;
-    }
+//     function format($data){
+//         $arr=array();
+//         foreach ($data as $key=>$val)
+//         {
+//             $arr[$val['id']]=$val;
+//         }
+//         return $arr;
+//     }
 }

@@ -29,17 +29,19 @@
 		         <div class="desc1 span_3_of_2">
 		        	<h3 class="m_3">{{$goods->title}}</h3>
 		         	<h3 class="m_3">
-		         		@if($status==0)
-    		         		距离活动开始还有
-    		         	@elseif($status==1)
-    		         		距离活动结束还有
-    		         	@elseif($status==2)
-    		         		活动已结束
-    		         	@endif
+		         		<span id="active_text">
+    		         		@if($status==0)
+        		         		距离活动开始还有
+        		         	@elseif($status==1)
+        		         		距离活动结束还有
+        		         	@elseif($status==2)
+        		         		活动已结束
+        		         	@endif
+    		         	</span>
     		         	<strong id="RemainD">1</strong>天<strong id="RemainH">12</strong>时<strong id="RemainM">12</strong>分<strong id="RemainS">12</strong>秒
 		         	</h3>
 		         	<h3 class="m_3">{{$goods->goods_name}}</h3>
-		             <p class="m_5">¥{{$goods->goods_price}}</p>
+		            <p class="m_5">¥{{$goods->goods_price}}</p>
 		         	 <div class="btn_form_skill">
 						<form>
 							<input type="submit" value="购买" disabled="disabled" title="">
@@ -101,6 +103,8 @@
 		    		}
 		    	}
 		    });
+
+		    $('.slides_container').show();
 		    //倒计时
 			GetRTime();
 			var status="{{$status}}"
@@ -132,6 +136,7 @@
 		        if(nMS==0){
 		        	if(status=="0"){
 						setSkillButton(1);
+						document.getElementById("active_text").innerHTML="距离活动结束还有";
 						remtime="{{$setime}}";
 						GetRTime();
 					}else{
