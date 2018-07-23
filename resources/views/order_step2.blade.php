@@ -4,53 +4,78 @@
 
 <div class="mens">    
   <div class="main">
-     <div class="wrap">
+   <div class="wrap">
+   <ul class="breadcrumb breadcrumb__t"><a class="home" href="#">Home</a> / <a href="#">Dolor sit amet</a> / Lorem ipsum dolor sit amet</ul>
      <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading h4">请选择支付方式</div>
-  <div class="panel-body">
-    <p  class="h6">    
-   
-   
-    </p>
-  </div>
-
- <!-- Table -->
- <table class="table table-bordered" style="text-align:center;">
-  <thead>
-    <tr>
-      <th scope="col">店铺宝贝</th>
-      <th scope="col">单价</th>
-      <th scope="col">数量</th>
-      <th scope="col">小计</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img class="a" id="img1" src="{{URL::asset('images/s1.jpg')}}" alt="" rel="{{URL::asset('images/s-img.jpg')}}" />444</td>
-      <td>111</td>
-      <td>222</td>
-      <td style="text-align:right;">333</td>
-    </tr>
-  </tbody>
-</table>
-
-  <div class="row">
-    <div class="col">
-     
-    </div>
-    <div class="col">
-       <div class="card text-right" style="min-width:30rem;float:right">
-          <div class="card-body">
-            <form action="">
-            	<a href="javascript:;" class="btn btn-primary">下一步</a>
-            </form>
+          <!-- Default panel contents -->
+          <div class="pay-order">
+              <div class="panel-heading h4">请选择支付方式</div>
+              <br/>
+           	  	
+              <div class="form-check">
+               	  	<div class="panel-heading h6">请选择平台支付</div>
+                       <div class="form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                          <label class="form-check-label" for="inlineRadio1">支付宝</label>
+                        </div>
+                        <div class="form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                          <label class="form-check-label" for="inlineRadio2">易付宝</label>
+                        </div>
+               		<br/><br/>
+            		<div class="panel-heading h6">请选择银行卡支付</div>
+                   <div class="form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                      <label class="form-check-label" for="inlineRadio3">招商</label>
+                    </div>
+                    <div class="form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                      <label class="form-check-label" for="inlineRadio4">工商</label>
+                    </div>
+                    <div class="form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                      <label class="form-check-label" for="inlineRadio5">农业</label>
+                    </div>
+                     <div class="form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+                      <label class="form-check-label" for="inlineRadio6">中国银行</label>
+                    </div>
+                     <br/>
+                    
+                   <div class="form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio7" value="option7">
+                      <label class="form-check-label" for="inlineRadio7">建设</label>
+                    </div>
+                    <div class="form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio8" value="option8">
+                      <label class="form-check-label" for="inlineRadio8">中信</label>
+                    </div>
+                    <div class="form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio9" value="option9">
+                      <label class="form-check-label" for="inlineRadio9">交通</label>
+                    </div>
+                     <div class="form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio10" value="option10">
+                      <label class="form-check-label" for="inlineRadio10">兴业</label>
+                    </div>
+                </div>
           </div>
+          <br/>
+          <br/>
+          <div class="row">
+         
+            <div class="col">
+               <div class="card text-right" style="width:100%;float:right">
+                  <div class="card-body">
+                    <form action="">
+                    	<a href="javascript:;" class="btn btn-primary">下一步</a>
+                    </form>
+                  </div>
+                </div>
+            </div>
+          </div>
+               
         </div>
-    </div>
-  </div>
-       
-</div>
     
      </div>
   </div>
