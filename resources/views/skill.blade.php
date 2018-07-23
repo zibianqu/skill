@@ -43,7 +43,10 @@
 		         	<h3 class="m_3">{{$goods->goods_name}}</h3>
 		            <p class="m_5">¥{{$goods->goods_price}}</p>
 		         	 <div class="btn_form_skill">
-						<form>
+						<form action="{{url('/skill_confirm_order')}}" method="post">
+						 	{{csrf_field()}}
+							<input type="hidden" name="goods_id" value="{{$goods->id}}">
+							<input type="hidden" name="count" value="1">
 							<input type="submit" value="购买" disabled="disabled" title="">
 						</form>
 					 </div>

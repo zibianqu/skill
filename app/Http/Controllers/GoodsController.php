@@ -15,7 +15,7 @@ class GoodsController extends Controller
     function detail($id){
         try {
             if(!session('user'))
-                return redirect("/login");
+                return redirect("/login/detail/{$id}");
             $goods=DB::table('Goods')
                 ->select('goods.id','goods.goods_name','goods.goods_price','goods.goods_num','goods.shop_id','shop.name')
                 ->join('shop','goods.shop_id','=','shop.id')

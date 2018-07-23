@@ -17,6 +17,7 @@
 					<div id="loginbox" class="loginbox">
 						<form action="{{url('login')}}" method="post" name="login" id="login-form">
 						  {{csrf_field()}}
+						  <input type="hidden" name="returnUrl" value="{{$returnUrl}}" />
 						  <fieldset class="input">
 						    <p id="login-form-username">
 						      <label for="modlgn_username">Email</label>

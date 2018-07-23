@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Thu, 19 Jul 2018 09:26:48 +0000.
+ * Date: Fri, 20 Jul 2018 07:29:06 +0000.
  */
 
 namespace App\Models;
@@ -19,7 +19,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $goods_name
  * @property int $count
  * @property float $price
- * @property float $all_price
+ * @property float $all_money
  * @property int $pay_way
  * @property bool $is_pay
  * @property bool $send_goods
@@ -39,7 +39,7 @@ class Order extends Eloquent
 		'goods_id' => 'int',
 		'count' => 'int',
 		'price' => 'float',
-		'all_price' => 'float',
+		'all_money' => 'float',
 		'pay_way' => 'int',
 		'is_pay' => 'bool',
 		'send_goods' => 'bool',
@@ -55,7 +55,7 @@ class Order extends Eloquent
 		'goods_name',
 		'count',
 		'price',
-		'all_price',
+		'all_money',
 		'pay_way',
 		'is_pay',
 		'send_goods',

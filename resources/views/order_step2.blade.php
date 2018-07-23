@@ -7,7 +7,7 @@
      <div class="wrap">
      <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading h4">确认订单信息</div>
+  <div class="panel-heading h4">请选择支付方式</div>
   <div class="panel-body">
     <p  class="h6">    
    
@@ -27,12 +27,11 @@
   </thead>
   <tbody>
     <tr>
-      <td><img class="a" id="img1" src="{{URL::asset('images/s1.jpg')}}" alt="" rel="{{URL::asset('images/s-img.jpg')}}" />{{$order['goods_name']}}</td>
-      <td>{{$order['price']}}</td>
-      <td>{{$order['count']}}</td>
-      <td style="text-align:right;">{{$order['all_money']}}</td>
+      <td><img class="a" id="img1" src="{{URL::asset('images/s1.jpg')}}" alt="" rel="{{URL::asset('images/s-img.jpg')}}" />444</td>
+      <td>111</td>
+      <td>222</td>
+      <td style="text-align:right;">333</td>
     </tr>
-   
   </tbody>
 </table>
 
@@ -43,14 +42,8 @@
     <div class="col">
        <div class="card text-right" style="min-width:30rem;float:right">
           <div class="card-body">
-            <h5 class="card-title">实付款：{{$order['all_money']}}</h5>
-            <p class="card-text">寄送至：四川 成都 双流 华阳镇 长江东二横街56号输气小苑二期三单元3楼4号</p>
-            <p class="card-text">收货人：金元宝</p>
-            <br/>
-            <form action="{{url('skill_pay')}}" id="pay_order" method="post">
-            	{{csrf_field()}}
-            	<input type="hidden" name="order_id" value="{{$order['order_id']}}"/>
-            	<a href="javascript:;" class="btn btn-primary" onclick="$('#pay_order').submit()">提交订单</a>
+            <form action="">
+            	<a href="javascript:;" class="btn btn-primary">下一步</a>
             </form>
           </div>
         </div>

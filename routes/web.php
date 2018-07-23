@@ -23,9 +23,10 @@
 // });
 
 Route::get('/','IndexController@index');
-Route::any('/login','LoginController@login');
+Route::any('/login/{returnUrl?}','LoginController@login')->where(['returnUrl'=>'.*']);
 // Route::get('/login','LoginController@login');
 Route::get('/logout','LoginController@logout');
 Route::get('/detail/{id}','GoodsController@detail')->where(['id'=>'[0-9]+']);
-Route::get('/skill/{id}','GoodsController@skill')->where(['id'=>'[0-9]+']);
-Route::get('/confirm_order','OrderController@orderStep1');
+Route::get('/skill/{id}','SkillGoodsController@skill')->where(['id'=>'[0-9]+']);
+Route::post('/skill_confirm_order','SkillOrderController@orderStep1');
+Route::post('/skill_pay','SkillOrderController@orderStep2');

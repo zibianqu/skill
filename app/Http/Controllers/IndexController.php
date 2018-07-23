@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 
 class IndexController extends Controller
 {
@@ -23,7 +24,7 @@ class IndexController extends Controller
             }
             $skillGoods=DB::table('skill_goods')
                 ->join('goods', 'skill_goods.goods_id','=','goods.id')
-                ->select('goods.id','goods.goods_name','goods.shop_id','goods.goods_price',DB::raw('skill_goods.id as sg_id'))
+                ->select('goods.id','goods.goods_name','goods.goods_num','goods.shop_id','goods.goods_price',DB::raw('skill_goods.id as sg_id'))
                 ->whereIn('skill_goods.active_id',$activeIds)
                 ->limit(9)
                 ->get();
@@ -32,6 +33,7 @@ class IndexController extends Controller
             $queries = DB::getQueryLog();
             // 即可查看执行的sql，传入的参数等等
             //dd($queries);
+            $this->setSkillGoodsInitRedis($skillGoods);
             return view('index',compact('title','skillGoods'));
         }catch (\Exception $e){
             dd($e);
@@ -41,10 +43,25 @@ class IndexController extends Controller
         
     }
     
+    /**
+     * 商品库存初始化
+     * @param unknown $goods
+     */
+    function setSkillGoodsInitRedis($goods)
+    {
+        foreach ($goods as $val)
+        {
+            if(!Redis::exists('goods_stock_'.$val->id)){
+                Redis::set('goods_stock_'.$val->id,$val->goods_num);//设置商品库存
+            }
+        }
+    }
+    
    /**
     * 算出两个时间的差
     */
-    function makeTime(){
+    function makeTime()
+    {
 //         $start=strtotime('2018-07-19 16:52:30');
 //         $end=strtotime('2018-07-17 10:30:50');;
 //         $diff=$start-$end;

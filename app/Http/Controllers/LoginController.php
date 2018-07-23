@@ -18,7 +18,7 @@ class LoginController extends Controller
      * 登陆
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
-    function login()
+    function login($returnUrl="/")
     {
         try {
             if($input=Input::all())
@@ -48,13 +48,13 @@ class LoginController extends Controller
                       return back()->with('msg','密码不正确');
                   }
                   session(['user'=>$user]);//将用户信息保存到session当中
-                  return redirect('/');
+                  return redirect($input['returnUrl']);
               }else{
                   return back()->withErrors($validator);
               }
             }
             $title = '登陆';
-            return view('login',compact('title'));
+            return view('login',compact('title','returnUrl'));
         }catch (\Exception $e){
             //dd($e);
             $title = '404';

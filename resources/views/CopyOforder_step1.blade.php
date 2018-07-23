@@ -27,12 +27,21 @@
   </thead>
   <tbody>
     <tr>
-      <td><img class="a" id="img1" src="{{URL::asset('images/s1.jpg')}}" alt="" rel="{{URL::asset('images/s-img.jpg')}}" />{{$order['goods_name']}}</td>
-      <td>{{$order['price']}}</td>
-      <td>{{$order['count']}}</td>
-      <td style="text-align:right;">{{$order['all_money']}}</td>
+      <td><img class="a" id="img1" src="{{URL::asset('images/s1.jpg')}}" alt="" rel="{{URL::asset('images/s-img.jpg')}}" />DR.</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td style="text-align:right;">41.86</td>
     </tr>
-   
+    <tr>
+      <td><img class="a" id="img1" src="{{URL::asset('images/s1.jpg')}}" alt="" rel="{{URL::asset('images/s-img.jpg')}}" />DR.</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td style="text-align:right;">41.86</td>
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align:right;">¥ 41.86</td>
+      
+    </tr>
   </tbody>
 </table>
 
@@ -43,15 +52,11 @@
     <div class="col">
        <div class="card text-right" style="min-width:30rem;float:right">
           <div class="card-body">
-            <h5 class="card-title">实付款：{{$order['all_money']}}</h5>
+            <h5 class="card-title">实付款：¥ 41.86</h5>
             <p class="card-text">寄送至：四川 成都 双流 华阳镇 长江东二横街56号输气小苑二期三单元3楼4号</p>
             <p class="card-text">收货人：金元宝</p>
             <br/>
-            <form action="{{url('skill_pay')}}" id="pay_order" method="post">
-            	{{csrf_field()}}
-            	<input type="hidden" name="order_id" value="{{$order['order_id']}}"/>
-            	<a href="javascript:;" class="btn btn-primary" onclick="$('#pay_order').submit()">提交订单</a>
-            </form>
+            <a href="#" class="btn btn-primary">提交订单</a>
           </div>
         </div>
     </div>
