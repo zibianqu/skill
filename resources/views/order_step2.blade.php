@@ -10,8 +10,7 @@
   <div class="panel-heading h4">请选择支付方式</div>
   <div class="panel-body">
     <p  class="h6">    
-   
-   
+   	
     </p>
   </div>
 
