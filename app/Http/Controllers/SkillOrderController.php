@@ -72,20 +72,45 @@ class SkillOrderController extends Controller
     }
     
     /**
-     * 支付订单
+     * 选择支付方式
      */
-    public function orderStep2(){
+    public function orderStep2()
+    {
         try{
             if(!session('user'))//判断是否登陆
                 return redirect("/login");
-                
-                $title="支付订单";
-                return view('order_step2',compact('title'));
+            $order_id=isset($_POST['order_id'])?$_POST['order_id']:"";    
+            
+            $title="选择支付方式";
+            return view('order_step2',compact('title','order_id'));
         }catch (\Exception $e){
             $title="404";
             return view('404',compact('title'));
         }
     }
     
+    //支付接口调用
+    public function orderStep3()
+    {
+        try{
+            if(!session('user'))//判断是否登陆
+                return redirect("/login");
+                $order_id=isset($_POST['order_id'])?$_POST['order_id']:"";
+        
+                $title="选择支付方式";
+                return view('order_step2',compact('title','order_id'));
+        }catch (\Exception $e){
+            $title="404";
+            return view('404',compact('title'));
+        }
+    }
+    
+    /**
+     * 订单管理,这里要去更新失效的订单状态
+     */
+    public function orderManager()
+    {
+        //    
+    }
     
 }

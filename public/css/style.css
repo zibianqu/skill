@@ -3175,7 +3175,9 @@ ul.delivery-list li a:hover{
 }
 /* 确认订单 */
 
+/* 支付界面 */
 
+.pay-order{width:100%;border:1px solid #F0F0F0;padding:10px;}
 
 
 
