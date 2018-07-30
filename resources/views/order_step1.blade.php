@@ -50,7 +50,7 @@
             <p class="card-text">寄送至：四川 成都 双流 华阳镇 长江东二横街56号输气小苑二期三单元3楼4号</p>
             <p class="card-text">收货人：金元宝</p>
             <br/>
-            <form action="{{url('skill_pay')}}" id="pay_order" method="post">
+            <form action="{{url('skill_payway')}}" id="pay_order" method="post">
             	{{csrf_field()}}
             	<input type="hidden" name="order_id" value="{{$order['order_id']}}"/>
             	<a href="javascript:;" class="btn btn-primary" onclick="$('#pay_order').submit()">提交订单</a>

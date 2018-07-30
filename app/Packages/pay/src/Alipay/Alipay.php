@@ -26,7 +26,6 @@
  |echo $result;
  |---------------------------------------------------------------------------------------------------------------------------------
  */
-namespace alipay;
 
 class Alipay
 {
@@ -36,15 +35,18 @@ class Alipay
      */
     public function __get($class)
     {
-        require_once("AopSdk.php");
+        require_once("AopSdk.php");//返回AopSdk类
         $newClass="";
         switch ($class)
         {
             case 'aopClient':
-                $newClass = new AopClient ();//返回AopSdk类
+                $newClass = new AopClient();//返回AopClient类
+                break;
+            case 'alipayTradePagePayRequest':
+                $newClass = new AlipayTradePagePayRequest();//返回AlipayTradePagePayRequest类
                 break;
             default:
-                $newClass = new AopClient ();//返回AopSdk类
+                $newClass = new AopClient();//返回AopSdk类
                 break;
         }
         return $newClass;

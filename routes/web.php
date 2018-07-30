@@ -29,4 +29,6 @@ Route::get('/logout','LoginController@logout');
 Route::get('/detail/{id}','GoodsController@detail')->where(['id'=>'[0-9]+']);
 Route::get('/skill/{id}','SkillGoodsController@skill')->where(['id'=>'[0-9]+']);
 Route::post('/skill_confirm_order','SkillOrderController@orderStep1');
-Route::post('/skill_pay','SkillOrderController@orderStep2');
+Route::post('/skill_payway','SkillOrderController@orderStep2');
+Route::post('/skill_pay','SkillOrderController@orderStep3');
+Route::get('/skill_notify/','SkillOrderController@notify');

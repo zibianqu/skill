@@ -26,8 +26,10 @@ class SkillGoodsController extends Controller
      */
     function skill($id){
         try{
-            if(!session('user'))
+            //判断是否登陆
+            if(!session('user')) 
                 return redirect("/login/skill/{$id}");
+            
             DB::connection()->enableQueryLog();
             $goods=DB::table('Goods')
             ->select('goods.id','goods.goods_name','goods.goods_price','goods.goods_num','goods.shop_id','shop.name','sa.start_time','sa.end_time','sa.title')
